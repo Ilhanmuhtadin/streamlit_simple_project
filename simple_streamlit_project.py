@@ -786,8 +786,8 @@ elif contact_method == "decision tree classifier":
     
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
-    df=pd.read_csv('data/a_7_dtc\pinguin_ukuran.csv')
-    df_kolums=pd.read_csv('data/a_7_dtc\kolums.csv')
+    df=pd.read_csv('data/a_7_dtc/pinguin_ukuran.csv')
+    df_kolums=pd.read_csv('data/a_7_dtc/kolums.csv')
     
     
     with tab1:
