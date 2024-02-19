@@ -195,32 +195,10 @@ elif contact_method == "Logistic_Regression":
   
 
 
-
-
 elif contact_method == "Logistic_Regression_multy_1":
     st.title('iris')
 
 
-
-    with tab3:
-        st.header("Distribution Data")
-        
-        
-
-
-
-
-    with tab4:
-        st.header("Accuracy")
-        st.header("MAE : 0.3926093765986013")
-        st.header("MSE : 0.2578347048485534")
-        st.header("RMSE : 0.5077742656422768")
-        
-
-   
-
-    with tab5:
-        st.header("Github")
 
 
 elif contact_method == "KNN Classifier":
