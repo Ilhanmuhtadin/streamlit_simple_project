@@ -203,9 +203,9 @@ elif contact_method == "Logistic_Regression":
         with st.form("my_form"):
                 number1 = st.number_input("age", value=None,key="1", placeholder="Type a number...")
                 number2 = st.number_input("physical_score", value=None,key="12", placeholder="Type a number...")
-
-                loaded_model = load('model/a_3_logis\C_1.599858719606058_solver_lbfgs.joblib')
-                scaler = pickle.load(open('model/a_3_logis\scaler_bin.pkl  ', 'rb'))
+                                    
+                loaded_model = load('model/a_3_logis/C_1.599858719606058_solver_lbfgs.joblib')
+                scaler = pickle.load(open('model/a_3_logis/scaler_bin.pkl', 'rb'))
             
             # Every form must have a submit button.
                 submitted = st.form_submit_button("Submits")
