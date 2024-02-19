@@ -32,7 +32,7 @@ if contact_method == "linear regresion":
         with tab1:
             st.header("Predict Data")
             with st.expander("Sample data"):
-                st.dataframe(df.head())
+                st.dataframe(df.sample(5,random_state=1))
 
             with st.form("my_form_linear regresion_Advertising"):
                     number1 = st.number_input("TV", value=None,key="linear regresion_Advertising1", placeholder="Type a number...")
@@ -109,6 +109,8 @@ elif contact_method == "Polynomial Regresion":
     df=pd.read_csv('data/Advertising.csv')
     with tab1:
         st.header("Predict Data")
+        with st.expander("Sample data"):
+            st.dataframe(df.sample(5,random_state=1))
 
         with st.form("my_form"):
                 number1 = st.number_input("TV", value=None,key="1", placeholder="Type a number...")
@@ -199,7 +201,7 @@ elif contact_method == "Logistic_Regression":
     with tab1:
         st.header("Predict Data")
         with st.expander("Sample data"):
-            st.dataframe(df.head())
+            st.dataframe(df.sample(5,random_state=1))
 
         with st.form("my_form"):
                 number1 = st.number_input("age", value=None,key="1", placeholder="Type a number...")
@@ -390,7 +392,7 @@ elif contact_method == "KNN Classifier":
     with tab1:
         st.header("Predict Data")
         with st.expander("Sample data"):
-            st.dataframe(df.head())
+            st.dataframe(df.sample(5,random_state=1))
 
         with st.form("my_form"):
                 number1 = st.number_input("age", value=None,key="1", placeholder="Type a number...")
@@ -486,7 +488,7 @@ elif contact_method == "SVM Classifier":
     with tab1:
         st.header("Predict Data")
         with st.expander("Sample data"):
-            st.dataframe(df.head())
+            st.dataframe(df.sample(5,random_state=1))
 
         with st.form("my_form"):
                 number1 = st.number_input(df.columns[0], value=None,key="1", placeholder="Type a number...")
@@ -583,7 +585,7 @@ elif contact_method == "SVM Regression":
     with tab1:
         st.header("Predict Data")
         with st.expander("Sample data"):
-            st.dataframe(df.head())
+            st.dataframe(df.sample(5,random_state=1))
 
         with st.form("my_form"):
                 number1 = st.number_input(df.columns[0], value=None,key="1", placeholder="Type a number...")
