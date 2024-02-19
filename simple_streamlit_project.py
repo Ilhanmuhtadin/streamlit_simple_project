@@ -302,7 +302,7 @@ elif contact_method == "SVM Classifier":
 
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
-    df=pd.read_csv('data/a_5_svmc\mouse_viral_study.csv')
+    df=pd.read_csv('data/a_5_svmc/mouse_viral_study.csv')
 
     with tab1:
         st.header("Predict Data")
@@ -313,8 +313,8 @@ elif contact_method == "SVM Classifier":
                 number1 = st.number_input(df.columns[0], value=None,key="1", placeholder="Type a number...")
                 number2 = st.number_input(df.columns[1], value=None,key="12", placeholder="Type a number...")
 
-                loaded_model = load('model/a_5_svmc\svmc_model.joblib')
-                loaded_model_sca = load('model/a_5_svmc\svmc_model_sca.joblib')
+                loaded_model = load('model/a_5_svmc/svmc_model.joblib')
+                loaded_model_sca = load('model/a_5_svmc/svmc_model_sca.joblib')
                 
             # Every form must have a submit button.
                 submitted = st.form_submit_button("Submits")
