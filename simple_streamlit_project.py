@@ -399,7 +399,7 @@ elif contact_method == "SVM Regression":
 
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
-    df=pd.read_csv('data/a_6_svmr\cement_slump.csv')
+    df=pd.read_csv('data/a_6_svmr/cement_slump.csv')
 
     with tab1:
         st.header("Predict Data")
@@ -418,8 +418,8 @@ elif contact_method == "SVM Regression":
                 number9 = st.number_input(df.columns[8], value=None,key="9", placeholder="Type a number...")
 
 
-                loaded_model = load('model/a_6_svmr\svmc_model_reg.joblib')
-                loaded_model_sca = load('model/a_6_svmr\svmc_model_reg_scaler.joblib')
+                loaded_model = load('model/a_6_svmr/svmc_model_reg.joblib')
+                loaded_model_sca = load('model/a_6_svmr/svmc_model_reg_scaler.joblib')
             
 
             # Every form must have a submit button.
@@ -507,7 +507,7 @@ elif contact_method == "random forest classifier":
 
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
-    df=pd.read_csv('data/a_8_rfc\data_banknote_authentication.csv')
+    df=pd.read_csv('data/a_8_rfc/data_banknote_authentication.csv')
 
     with tab1:
         st.header("Predict Data")
@@ -523,7 +523,7 @@ elif contact_method == "random forest classifier":
                 number3 = st.number_input(df.columns[2], value=None,key="2", placeholder="Type a number...")
                 number4 = st.number_input(df.columns[3], value=None,key="3", placeholder="Type a number...")
 
-                loaded_model = load('model/a_8_rfc\halo_rfc.joblib')
+                loaded_model = load('model/a_8_rfc/halo_rfc.joblib')
 
                 
     
