@@ -217,7 +217,7 @@ elif contact_method == "KNN Classifier":
                 number1 = st.number_input("age", value=None,key="1", placeholder="Type a number...")
                 number2 = st.number_input("physical_score", value=None,key="12", placeholder="Type a number...")
 
-                loaded_model = load('model/a_4_knn/knn_model.joblib')
+                loaded_modelknn = load('model/a_4_knn/knn_model.joblib')
 
 
                 
@@ -228,9 +228,9 @@ elif contact_method == "KNN Classifier":
 
 
 
-                    hasil=loaded_model.predict([[number1,number2]])
+                    hasil=loaded_modelknn.predict([[number1,number2]])
                     
-                    kemungkinan=loaded_model.predict_proba([[number1,number2]])
+                    kemungkinan=loaded_modelknn.predict_proba([[number1,number2]])
                     
                     if hasil[0]==1:
                         st.write(hasil[0])
