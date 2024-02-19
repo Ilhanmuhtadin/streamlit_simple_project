@@ -28,7 +28,7 @@ if contact_method == "linear regresion":
         
         tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                               "Accuracy","Github"])
-        df=pd.read_csv('data/Advertising.CSV')
+        df=pd.read_csv('data/Advertising.csv')
         with tab1:
             st.header("Predict Data")
             with st.expander("Sample data"):
