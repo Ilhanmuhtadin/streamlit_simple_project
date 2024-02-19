@@ -7,6 +7,7 @@ from io import StringIO
 from joblib import dump, load
 import io
 import pickle
+import joblib
 
 
 
@@ -217,7 +218,7 @@ elif contact_method == "KNN Classifier":
                 number1 = st.number_input("age", value=None,key="1", placeholder="Type a number...")
                 number2 = st.number_input("physical_score", value=None,key="12", placeholder="Type a number...")
 
-                loaded_model = load('model/a_4_knn/knn_model.joblib')
+                loaded_model = joblib.load('model/a_4_knn/knn_model.joblib')
                 
 
             # Every form must have a submit button.
