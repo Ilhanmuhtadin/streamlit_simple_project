@@ -1,17 +1,11 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import altair as alt
-import matplotlib.pyplot as plt
-from datetime import datetime
 from io import StringIO
 from joblib import dump, load
 import io
 import pickle
-from datetime import date
-from datetime import time
-import time as ti
-import visual_data
+
 
 import Polynomial_Regresion1
 import Logistic_Regression1
@@ -20,6 +14,7 @@ import knn_1
 import svm_c_1
 import svm_r_1
 import rf_c_1
+
 
 # Using object notation
 contact_method = st.sidebar.selectbox(
