@@ -69,7 +69,7 @@ if contact_method == "linear regresion":
             st.download_button(
                 label="Download full data as CSV",
                 data=csv,
-                file_name='Advertising.CSV',
+                file_name='Advertising.csv',
                 mime='text/csv',
             )
                 
@@ -106,7 +106,7 @@ elif contact_method == "Polynomial Regresion":
 
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
-    df=pd.read_csv('data/Advertising.CSV')
+    df=pd.read_csv('data/Advertising.csv')
     with tab1:
         st.header("Predict Data")
 
@@ -152,7 +152,7 @@ elif contact_method == "Polynomial Regresion":
         st.download_button(
             label="Download full data as CSV",
             data=csv,
-            file_name='Advertising.CSV',
+            file_name='Advertising.csv',
             mime='text/csv',
         )
         
@@ -194,7 +194,7 @@ elif contact_method == "Logistic_Regression":
 
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
-    df=pd.read_csv('data/hearing_test.CSV')
+    df=pd.read_csv('data/hearing_test.csv')
     with tab1:
         st.header("Predict Data")
         with st.expander("Sample data"):
@@ -241,7 +241,7 @@ elif contact_method == "Logistic_Regression":
         st.download_button(
             label="Download full data as CSV",
             data=csv,
-            file_name='hearing_test.CSV',
+            file_name='hearing_test.csv',
             mime='text/csv',
         )
 
@@ -288,7 +288,7 @@ elif contact_method == "Logistic_Regression_multy_1":
 
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
-    df=pd.read_csv('data/iris.CSV')
+    df=pd.read_csv('data/iris.csv')
     with tab1:
         st.header("Predict Data")
         with st.expander("Sample data"):
@@ -334,7 +334,7 @@ elif contact_method == "Logistic_Regression_multy_1":
         st.download_button(
             label="Download full data as CSV",
             data=csv,
-            file_name='iris.CSV',
+            file_name='iris.csv',
             mime='text/csv',
         )
 
