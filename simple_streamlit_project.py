@@ -526,6 +526,7 @@ elif contact_method == "SVM Classifier":
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
     df=pd.read_csv('data/a_5_svmc/mouse_viral_study.csv')
+    loaded_model = load('model/a_5_svmc/model_baru1.joblib')
 
     with tab1:
         st.header("Predict Data")
@@ -536,16 +537,16 @@ elif contact_method == "SVM Classifier":
                 number1 = st.number_input(df.columns[0], value=None,key="1", placeholder="Type a number...")
                 number2 = st.number_input(df.columns[1], value=None,key="12", placeholder="Type a number...")
 
-                loaded_model = load('model/a_5_svmc/svmc_model.joblib')
-                loaded_model_sca = load('model/a_5_svmc/svmc_model_sca.joblib')
+                
+                
                 
             # Every form must have a submit button.
                 submitted = st.form_submit_button("Submits")
                 if submitted:
 
 
-                    h_p=loaded_model_sca.transform([[number1,number2]])
-                    hasil=loaded_model.predict(h_p)
+                    
+                    hasil=loaded_model.predict([[number1,number2]])
                 
                     
                     if hasil[0]==1:
@@ -608,7 +609,7 @@ elif contact_method == "SVM Classifier":
         st.header("MAE : 0.3926093765986013")
         st.header("MSE : 0.2578347048485534")
         st.header("RMSE : 0.5077742656422768")
-        
+        dowload_job(loaded_model )
 
 
 
@@ -623,6 +624,10 @@ elif contact_method == "SVM Regression":
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
     df=pd.read_csv('data/a_6_svmr/cement_slump.csv')
+
+    loaded_model = load('model/a_6_svmr/model_baru_1.joblib')
+               
+    
 
     with tab1:
         st.header("Predict Data")
@@ -642,7 +647,7 @@ elif contact_method == "SVM Regression":
 
 
                 loaded_model = load('model/a_6_svmr/svmc_model_reg.joblib')
-                loaded_model_sca = load('model/a_6_svmr/svmc_model_reg_scaler.joblib')
+               
             
 
             # Every form must have a submit button.
@@ -716,7 +721,7 @@ elif contact_method == "SVM Regression":
         st.header("MAE : 0.3926093765986013")
         st.header("MSE : 0.2578347048485534")
         st.header("RMSE : 0.5077742656422768")
-        
+        dowload_job(loaded_model)
 
 
     with tab5:
