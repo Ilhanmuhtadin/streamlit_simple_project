@@ -401,6 +401,7 @@ elif contact_method == "KNN Classifier":
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
     df=pd.read_csv('data/gene_expression.csv')
+    loaded_modelknn = load('model/a_4_knn/knn_model.joblib')
     with tab1:
         st.header("Predict Data")
         with st.expander("Sample data"):
@@ -410,7 +411,7 @@ elif contact_method == "KNN Classifier":
                 number1 = st.number_input("age", value=None,key="1", placeholder="Type a number...")
                 number2 = st.number_input("physical_score", value=None,key="12", placeholder="Type a number...")
 
-                loaded_modelknn = load('model/a_4_knn/knn_model.joblib')
+                
 
 
                 
@@ -483,6 +484,17 @@ elif contact_method == "KNN Classifier":
         st.header("MAE : 0.3926093765986013")
         st.header("MSE : 0.2578347048485534")
         st.header("RMSE : 0.5077742656422768")
+        buffer = io.BytesIO()
+        #st.write(buffer)
+        dump(loaded_modelknn, buffer)
+        buffer.seek(0)
+    
+        
+        st.download_button(
+            label="Download Model",
+            data=buffer.getvalue(),
+            file_name="model.joblib"
+        )
         
 
     with tab5:
@@ -701,7 +713,7 @@ elif contact_method == "random forest classifier":
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
     df=pd.read_csv('data/a_8_rfc/data_banknote_authentication.csv')
-
+    loaded_model = load('model/a_8_rfc/halo_rfc.joblib')
     with tab1:
         st.header("Predict Data")
         with st.expander("Sample data"):
@@ -716,7 +728,7 @@ elif contact_method == "random forest classifier":
                 number3 = st.number_input(df.columns[2], value=None,key="2", placeholder="Type a number...")
                 number4 = st.number_input(df.columns[3], value=None,key="3", placeholder="Type a number...")
 
-                loaded_model = load('model/a_8_rfc/halo_rfc.joblib')
+                
 
                 
     
@@ -785,7 +797,17 @@ elif contact_method == "random forest classifier":
         st.header("MAE : 0.3926093765986013")
         st.header("MSE : 0.2578347048485534")
         st.header("RMSE : 0.5077742656422768")
+        buffer = io.BytesIO()
+        #st.write(buffer)
+        dump(loaded_model, buffer)
+        buffer.seek(0)
+    
         
+        st.download_button(
+            label="Download Model",
+            data=buffer.getvalue(),
+            file_name="model.joblib"
+        )
 
 
 
@@ -800,7 +822,7 @@ elif contact_method == "decision tree classifier":
                                             "Accuracy","Github"])
     df=pd.read_csv('data/a_7_dtc/pinguin_ukuran.csv')
     df_kolums=pd.read_csv('data/a_7_dtc/kolums.csv')
-    
+    loaded_model = load('model/a_7_dtc/dtc_sc_com.joblib')
     
     with tab1:
         st.header("Predict Data")
@@ -821,7 +843,7 @@ elif contact_method == "decision tree classifier":
                 number4 = st.number_input(df.columns[5], value=None,key="4", placeholder="Type a number...")
     
     
-                loaded_model = load('model/a_7_dtc/dtc_sc_com.joblib')
+                
     
                 lop=df.drop(columns='species')
                 
@@ -914,6 +936,17 @@ elif contact_method == "decision tree classifier":
         st.header("MAE : 0.3926093765986013")
         st.header("MSE : 0.2578347048485534")
         st.header("RMSE : 0.5077742656422768")
+        buffer = io.BytesIO()
+        #st.write(buffer)
+        dump(loaded_model, buffer)
+        buffer.seek(0)
+    
+        
+        st.download_button(
+            label="Download Model",
+            data=buffer.getvalue(),
+            file_name="model.joblib"
+        )
         
     
        
