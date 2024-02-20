@@ -223,6 +223,7 @@ elif contact_method == "Logistic_Regression":
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
     df=pd.read_csv('data/hearing_test.csv')
+    loaded_model = load('model/a_3_logis/model_baru.joblib')
     with tab1:
         st.header("Predict Data")
         with st.expander("Sample data"):
@@ -232,8 +233,8 @@ elif contact_method == "Logistic_Regression":
                 number1 = st.number_input("age", value=None,key="1", placeholder="Type a number...")
                 number2 = st.number_input("physical_score", value=None,key="12", placeholder="Type a number...")
 
-                loaded_model = load('model/a_3_logis/C_1.599858719606058_solver_lbfgs.joblib')
-                scaler = load('model/a_3_logis/scaler_bin_baru.joblib')
+                
+                
             
             
             # Every form must have a submit button.
@@ -241,8 +242,8 @@ elif contact_method == "Logistic_Regression":
                 if submitted:
 
 
-                    hasil_p=scaler.transform([[number1,number2]])
-                    hasil=loaded_model.predict(hasil_p)
+                    
+                    hasil=loaded_model.predict([[number1,number2]])
                     
                     
                     if hasil[0]==1:
@@ -301,6 +302,7 @@ elif contact_method == "Logistic_Regression":
         st.header("MAE : 0.3926093765986013")
         st.header("MSE : 0.2578347048485534")
         st.header("RMSE : 0.5077742656422768")
+        dowload_job(loaded_model)
         
 
 
@@ -317,6 +319,8 @@ elif contact_method == "Logistic_Regression_multy_1":
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
     df=pd.read_csv('data/iris.csv')
+    loaded_model = load('model/a_3_logis/model_baru1.joblib')
+    
     with tab1:
         st.header("Predict Data")
         with st.expander("Sample data"):
@@ -327,16 +331,16 @@ elif contact_method == "Logistic_Regression_multy_1":
                 number2 = st.number_input("sepal_width", value=None,key="12", placeholder="Type a number...")
                 number3 = st.number_input("petal_length", value=None,key="123", placeholder="Type a number...")
                 number4 = st.number_input("petal_width", value=None,key="1234", placeholder="Type a number...")
-                loaded_model = load('model/a_3_logis/C_316.22776601683796_solver_saga_l1_ovr.joblib')
-                scaler = load('model/a_3_logis/scaler_multy_baru.joblib')
+                
+                
             
             # Every form must have a submit button.
                 submitted = st.form_submit_button("Submits")
                 if submitted:
                     
 
-                    hasil_p=scaler.transform([[number1,number2,number3,number4]])
-                    hasil=loaded_model.predict(hasil_p)
+                    
+                    hasil=loaded_model.predict([[number1,number2,number3,number4]])
               
                     
                    
@@ -396,6 +400,7 @@ elif contact_method == "Logistic_Regression_multy_1":
         st.header("MAE : 0.3926093765986013")
         st.header("MSE : 0.2578347048485534")
         st.header("RMSE : 0.5077742656422768")
+        dowload_job(loaded_model)
         
 
    
