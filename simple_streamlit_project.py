@@ -98,7 +98,7 @@ if contact_method == "linear regresion":
             st.header("RMSE : 0.5283350124017433")  
             buffer = io.BytesIO()
             #st.write(buffer)
-            joblib.dump(loaded_model, buffer)
+            dump(loaded_model, buffer)
             buffer.seek(0)
         
             
