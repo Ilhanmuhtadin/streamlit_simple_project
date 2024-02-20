@@ -9,7 +9,7 @@ import io
 import pickle
 
 def dowload_job(loaded_model):
-    st.title('Model data')
+    st.header('Model data')
     buffer = io.BytesIO()
     #st.write(buffer)
     dump(loaded_model, buffer)
@@ -304,6 +304,7 @@ elif contact_method == "Logistic_Regression":
         st.header("MAE : 0.3926093765986013")
         st.header("MSE : 0.2578347048485534")
         st.header("RMSE : 0.5077742656422768")
+        
         dowload_job(loaded_model)
         
 
@@ -508,6 +509,7 @@ elif contact_method == "KNN Classifier":
         #st.write(buffer)
         dump(loaded_modelknn, buffer)
         buffer.seek(0)
+        st.header('Model data')
     
         
         st.download_button(
@@ -824,7 +826,7 @@ elif contact_method == "random forest classifier":
         st.header("RMSE : 0.5077742656422768")
         buffer = io.BytesIO()
         #st.write(buffer)
-        st.title('Model data')
+        st.header('Model data')
         dump(loaded_model, buffer)
         buffer.seek(0)
     
@@ -963,6 +965,7 @@ elif contact_method == "decision tree classifier":
         st.header("MSE : 0.2578347048485534")
         st.header("RMSE : 0.5077742656422768")
         buffer = io.BytesIO()
+        st.header('Model data')
         #st.write(buffer)
         dump(loaded_model, buffer)
         buffer.seek(0)
