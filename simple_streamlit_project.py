@@ -24,7 +24,7 @@ contact_method = st.sidebar.selectbox(
 
 
 if contact_method == "linear regresion":
-        st.title('Advertising')
+        st.title('Advertising s')
         
         tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                               "Accuracy","Github"])
@@ -103,7 +103,7 @@ if contact_method == "linear regresion":
         
             
             st.download_button(
-                label="Mownload Model",
+                label="Download Model",
                 data=buffer.getvalue(),
                 file_name="model.joblib"
             )
