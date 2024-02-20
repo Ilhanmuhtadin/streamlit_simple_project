@@ -9,6 +9,7 @@ import io
 import pickle
 
 def dowload_job(loaded_model):
+    st.title('Model data')
     buffer = io.BytesIO()
     #st.write(buffer)
     dump(loaded_model, buffer)
@@ -107,6 +108,7 @@ if contact_method == "linear regresion":
             st.header("MAE : 0.45172351786524734")
             st.header("MSE : 0.27913788532955025")
             st.header("RMSE : 0.5283350124017433")  
+            st.title('Model data')
             buffer = io.BytesIO()
             #st.write(buffer)
             dump(loaded_model, buffer)
@@ -822,6 +824,7 @@ elif contact_method == "random forest classifier":
         st.header("RMSE : 0.5077742656422768")
         buffer = io.BytesIO()
         #st.write(buffer)
+        st.title('Model data')
         dump(loaded_model, buffer)
         buffer.seek(0)
     
