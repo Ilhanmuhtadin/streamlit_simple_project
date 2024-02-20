@@ -29,6 +29,7 @@ if contact_method == "linear regresion":
         tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                               "Accuracy","Github"])
         df=pd.read_csv('data/Advertising.csv')
+        loaded_model = load('model/1simpl.joblib')
         with tab1:
             st.header("Predict Data")
             with st.expander("Sample data"):
@@ -44,7 +45,7 @@ if contact_method == "linear regresion":
                     submitted = st.form_submit_button("Submits")
                     if submitted:
                         
-                        loaded_model = load('model/1simpl.joblib')
+                        
                         hasil=loaded_model.predict([[number1,number2,number3]])
                         st.write(hasil[0])
 
@@ -94,7 +95,18 @@ if contact_method == "linear regresion":
             st.header("Accuracy")
             st.header("MAE : 0.45172351786524734")
             st.header("MSE : 0.27913788532955025")
-            st.header("RMSE : 0.5283350124017433")     
+            st.header("RMSE : 0.5283350124017433")  
+            buffer = io.BytesIO()
+            #st.write(buffer)
+            joblib.dump(loaded_model, buffer)
+            buffer.seek(0)
+        
+            
+            st.download_button(
+                label="Mownload Model",
+                data=buffer.getvalue(),
+                file_name="model.joblib"
+            )
 
         with tab5:
             st.header("Github")
