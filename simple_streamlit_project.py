@@ -8,7 +8,18 @@ from joblib import dump, load
 import io
 import pickle
 
+def dowload_job(loaded_model):
+    buffer = io.BytesIO()
+    #st.write(buffer)
+    dump(loaded_model, buffer)
+    buffer.seek(0)
 
+    
+    st.download_button(
+        label="Download Model",
+        data=buffer.getvalue(),
+        file_name="model.joblib"
+    )
 
 
 
@@ -119,6 +130,7 @@ elif contact_method == "Polynomial Regresion":
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
     df=pd.read_csv('data/Advertising.csv')
+    loaded_poly = load('model/a_2_poly/poly_finals.joblib')
     with tab1:
         st.header("Predict Data")
         with st.expander("Sample data"):
@@ -136,14 +148,13 @@ elif contact_method == "Polynomial Regresion":
                     
   
 
-                    loaded_poly = load('model/a_2_poly/poly_converter.joblib')
-                    loaded_model = load('model/a_2_poly/sales_poly_model.joblib')
-
-                    campaign_poly = loaded_poly.transform([[number1,number2,number3]])
-                    hasil=loaded_model.predict(campaign_poly)
+                    loaded_poly = load('model/a_2_poly/poly_finals.joblib')
+                    
+                    campaign_poly = loaded_poly.predict([[number1,number2,number3]])
+  
                     
                     
-                    st.write(hasil[0])
+                    st.write(campaign_poly[0])
 
 
 
@@ -195,6 +206,8 @@ elif contact_method == "Polynomial Regresion":
         st.header("MAE : 0.3926093765986013")
         st.header("MSE : 0.2578347048485534")
         st.header("RMSE : 0.5077742656422768")
+        dowload_job(loaded_poly)
+    
         
 
 
