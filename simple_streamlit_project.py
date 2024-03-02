@@ -231,11 +231,11 @@ elif contact_method == "Polynomial Regresion":
 
         
         st.header("Accuracy")
-        st.header(sss)
-        st.header(sss1)
-        st.header(sss2)
+        st.subheader(sss)
+        st.subheader(sss1)
+        st.subheader(sss2)
 
-
+        st.header("plot line prediction results")
         x_line=np.arange(len(y_test))
         df_1=pd.DataFrame(test_predictions)
         df_2=pd.DataFrame(y_test)
