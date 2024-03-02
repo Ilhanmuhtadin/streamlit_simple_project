@@ -216,11 +216,23 @@ elif contact_method == "Polynomial Regresion":
         MAE = mean_absolute_error(y_test,test_predictions)
         MSE = mean_squared_error(y_test,test_predictions)
         RMSE = np.sqrt(MSE)
+
+        
+
+        mae_s="MAE : "
+        mae_s1="MSE : "
+        mae_s2="RMSE : "
+        
+        sss = mae_s + str(MAE)
+        sss1 = mae_s1 + str(MSE)
+        sss2 = mae_s2 + str(RMSE)
+
+
         
         st.header("Accuracy")
-        st.header("MAE : ",MAE)
-        st.header("MSE : ",MSE)
-        st.header("RMSE : ",RMSE)
+        st.header(sss)
+        st.header(sss1)
+        st.header(sss2)
         dowload_job(loaded_poly)
     
         
