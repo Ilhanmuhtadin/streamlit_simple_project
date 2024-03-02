@@ -234,7 +234,8 @@ elif contact_method == "Polynomial Regresion":
         st.subheader(sss)
         st.subheader(sss1)
         st.subheader(sss2)
-
+        st.subheader("")
+        st.subheader("")
         st.header("plot line prediction results")
         x_line=np.arange(len(y_test))
         df_1=pd.DataFrame(test_predictions)
@@ -250,6 +251,7 @@ elif contact_method == "Polynomial Regresion":
         axes.plot(x_line,df_3[0].values,label='pred')
         plt.legend()
         st.pyplot(fig)
+        st.subheader("")
         dowload_job(loaded_poly)
     
         
