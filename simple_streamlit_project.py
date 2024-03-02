@@ -153,7 +153,7 @@ elif contact_method == "Polynomial Regresion":
                     
   
 
-                    loaded_poly = load('model/a_2_poly/poly_finals.joblib')
+                    
                     
                     campaign_poly = loaded_poly.predict([[number1,number2,number3]])
   
