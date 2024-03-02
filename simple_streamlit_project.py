@@ -263,6 +263,7 @@ elif contact_method == "Polynomial Regresion":
 
     with tab5:
         st.header("Github")
+        st.page_link("https://github.com/Ilhanmuhtadin/deploy_simple_ml/tree/main/deploy_github", label="Google", icon="🌎")
 
 
 
