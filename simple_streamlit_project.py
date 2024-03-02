@@ -249,7 +249,7 @@ elif contact_method == "Polynomial Regresion":
         axes.plot(x_line,df_3['sales'].values,label='test')
         axes.plot(x_line,df_3[0].values,label='pred')
         plt.legend()
-        st.pyplot()
+        st.pyplot(fig)
         dowload_job(loaded_poly)
     
         
