@@ -236,7 +236,7 @@ elif contact_method == "Polynomial Regresion":
         st.header(sss2)
 
 
-
+        x_line=np.arange(len(y_test))
         df_1=pd.DataFrame(test_predictions)
         df_2=pd.DataFrame(y_test)
         df_2=df_2.reset_index(drop=True)
