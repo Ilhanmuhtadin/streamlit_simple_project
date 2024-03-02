@@ -7,6 +7,9 @@ from io import StringIO
 from joblib import dump, load
 import io
 import pickle
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error,mean_squared_error
+
 
 def dowload_job(loaded_model):
     st.header('Model data')
@@ -132,7 +135,7 @@ elif contact_method == "Polynomial Regresion":
     tab1, tab2, tab3,tab4,tab5 = st.tabs(["Predict Data","Simple Info Data","Distribution Data",
                                             "Accuracy","Github"])
     df=pd.read_csv('data/Advertising.csv')
-    loaded_poly = load('model/a_2_poly/poly_finals.joblib')
+    loaded_poly = load('model/a_2_poly/final_sales_poly_model_pipe.joblib')
     with tab1:
         st.header("Predict Data")
         with st.expander("Sample data"):
@@ -204,10 +207,19 @@ elif contact_method == "Polynomial Regresion":
 
 
     with tab4:
+        X = df.drop('sales',axis=1)
+        y = df['sales']
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=101)
+
+        test_predictions =loaded_poly.predict(X_test)
+        MAE = mean_absolute_error(y_test,test_predictions)
+        MSE = mean_squared_error(y_test,test_predictions)
+        RMSE = np.sqrt(MSE)
+        
         st.header("Accuracy")
-        st.header("MAE : 0.3926093765986013")
-        st.header("MSE : 0.2578347048485534")
-        st.header("RMSE : 0.5077742656422768")
+        st.header("MAE : ",MAE)
+        st.header("MSE : ",MSE)
+        st.header("RMSE : ",RMSE)
         dowload_job(loaded_poly)
     
         
