@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 from io import StringIO
 from joblib import dump, load
@@ -233,6 +234,22 @@ elif contact_method == "Polynomial Regresion":
         st.header(sss)
         st.header(sss1)
         st.header(sss2)
+
+
+
+        df_1=pd.DataFrame(test_predictions)
+        df_2=pd.DataFrame(y_test)
+        df_2=df_2.reset_index(drop=True)
+        df_3=pd.concat([df_2,df_1],axis=1)
+        df_3=df_3.sort_values('sales')
+        
+        fig = plt.figure(figsize=(12,5),dpi=200)
+        axes = fig.add_axes([0, 0, 1, 1]) 
+        
+        axes.plot(x_line,df_3['sales'].values,label='test')
+        axes.plot(x_line,df_3[0].values,label='pred')
+        plt.legend()
+        st.pyplot()
         dowload_job(loaded_poly)
     
         
