@@ -27,6 +27,53 @@ def dowload_job(loaded_model):
     )
 
 
+def tabb_4(hilangkan,test_size,random_state):
+
+    X = df.drop(hilangkan,axis=1)
+    y = df[hilangkan]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
+
+    test_predictions =loaded_poly.predict(X_test)
+    MAE = mean_absolute_error(y_test,test_predictions)
+    MSE = mean_squared_error(y_test,test_predictions)
+    RMSE = np.sqrt(MSE)
+
+    
+
+    mae_s="MAE : "
+    mae_s1="MSE : "
+    mae_s2="RMSE : "
+    
+    sss = mae_s + str(MAE)
+    sss1 = mae_s1 + str(MSE)
+    sss2 = mae_s2 + str(RMSE)
+
+
+    
+    st.header("Accuracy")
+    st.subheader(sss)
+    st.subheader(sss1)
+    st.subheader(sss2)
+    st.subheader("")
+    st.subheader("")
+    st.header("plot line prediction results")
+    x_line=np.arange(len(y_test))
+    df_1=pd.DataFrame(test_predictions)
+    df_2=pd.DataFrame(y_test)
+    df_2=df_2.reset_index(drop=True)
+    df_3=pd.concat([df_2,df_1],axis=1)
+    df_3=df_3.sort_values('sales')
+    
+    fig = plt.figure(figsize=(7,3),dpi=500)
+    axes = fig.add_axes([0, 0, 1, 1]) 
+    
+    axes.plot(x_line,df_3[hilangkan].values,label='test')
+    axes.plot(x_line,df_3[0].values,label='pred')
+    plt.legend()
+    st.pyplot(fig)
+    st.subheader("")
+
+
 
 # Using object notation
 contact_method = st.sidebar.selectbox(
@@ -208,50 +255,7 @@ elif contact_method == "Polynomial Regresion":
 
 
     with tab4:
-        
-        X = df.drop('sales',axis=1)
-        y = df['sales']
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=101)
-
-        test_predictions =loaded_poly.predict(X_test)
-        MAE = mean_absolute_error(y_test,test_predictions)
-        MSE = mean_squared_error(y_test,test_predictions)
-        RMSE = np.sqrt(MSE)
-
-        
-
-        mae_s="MAE : "
-        mae_s1="MSE : "
-        mae_s2="RMSE : "
-        
-        sss = mae_s + str(MAE)
-        sss1 = mae_s1 + str(MSE)
-        sss2 = mae_s2 + str(RMSE)
-
-
-        
-        st.header("Accuracy")
-        st.subheader(sss)
-        st.subheader(sss1)
-        st.subheader(sss2)
-        st.subheader("")
-        st.subheader("")
-        st.header("plot line prediction results")
-        x_line=np.arange(len(y_test))
-        df_1=pd.DataFrame(test_predictions)
-        df_2=pd.DataFrame(y_test)
-        df_2=df_2.reset_index(drop=True)
-        df_3=pd.concat([df_2,df_1],axis=1)
-        df_3=df_3.sort_values('sales')
-        
-        fig = plt.figure(figsize=(12,5),dpi=200)
-        axes = fig.add_axes([0, 0, 1, 1]) 
-        
-        axes.plot(x_line,df_3['sales'].values,label='test')
-        axes.plot(x_line,df_3[0].values,label='pred')
-        plt.legend()
-        st.pyplot(fig)
-        st.subheader("")
+        tabb_4("sales",0.3,101)
         dowload_job(loaded_poly)
     
         
