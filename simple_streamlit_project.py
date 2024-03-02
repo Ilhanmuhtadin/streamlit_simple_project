@@ -207,6 +207,7 @@ elif contact_method == "Polynomial Regresion":
 
 
     with tab4:
+        loaded_poly = load('model/a_2_poly/final_sales_poly_model_pipe.joblib')
         X = df.drop('sales',axis=1)
         y = df['sales']
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=101)
