@@ -186,12 +186,15 @@ elif contact_method == "Polynomial Regresion":
     loaded_poly = load('model/a_2_poly/final_sales_poly_model_pipes.joblib')
     with tab1:
         st.header("Predict Data")
+        
         with st.expander("Sample data"):
-            random_number = st.empty()
-            data_button = st.button("change data")
-            if data_button:
+            random_number = random.randint(1, 1000)
+            data_to_show = df.sample(5, random_state=random_number)
+            st.dataframe(data_to_show)
+            if st.button("Generate Random Data"):
                 random_number = random.randint(1, 1000)
-                st.dataframe(df.sample(5, random_state=random_number))
+                data_to_show = df.sample(5, random_state=random_number)
+                st.dataframe(data_to_show)
             
 
 
