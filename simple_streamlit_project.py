@@ -188,7 +188,7 @@ elif contact_method == "Polynomial Regresion":
         st.header("Predict Data")
         with st.expander("Sample data"):
             random_number = st.empty()
-            data_button = st.button("change data"):
+            data_button = st.button("change data")
             if data_button:
                 random_number = random.randint(1, 1000)
                 st.dataframe(df.sample(5, random_state=random_number))
