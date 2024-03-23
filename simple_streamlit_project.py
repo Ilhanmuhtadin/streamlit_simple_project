@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+import random
 from io import StringIO
 from joblib import dump, load
 import io
@@ -187,7 +187,9 @@ elif contact_method == "Polynomial Regresion":
     with tab1:
         st.header("Predict Data")
         with st.expander("Sample data"):
-            st.dataframe(df.sample(5,random_state=1))
+            
+            random_number = random.randint(1, 1000)
+            st.dataframe(df.sample(5,random_state=random_number))
 
         with st.form("my_form"):
                 number1 = st.number_input("TV", value=None,key="1", placeholder="Type a number...")
