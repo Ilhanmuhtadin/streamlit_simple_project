@@ -194,7 +194,7 @@ elif contact_method == "Polynomial Regresion":
             if st.button("Generate Random Data"):
                 random_number = random.randint(1, 1000)
                 data_to_show = df.sample(5, random_state=random_number)
-                st.dataframe(data_to_show)
+                
             
 
 
